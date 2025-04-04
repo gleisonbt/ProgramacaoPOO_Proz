@@ -51,7 +51,7 @@ public class Main {
 		}
 		JOptionPane.showMessageDialog(null, soma);*/
 		
-		int[] vetorInteiros = new int[5];
+		/*int[] vetorInteiros = new int[5];
 		for (int i = 0; i < vetorInteiros.length; i++) {
 			vetorInteiros[i] = Integer.parseInt(JOptionPane.
 					showInputDialog("Valor: "));
@@ -62,7 +62,46 @@ public class Main {
 			//System.out.println(vetorInteiros[i]);
 			listaNumeros += vetorInteiros[i] + " ";
 		}
-		JOptionPane.showMessageDialog(null, listaNumeros);
+		JOptionPane.showMessageDialog(null, listaNumeros);*/
+		
+		int qtdePessoas  = Integer.parseInt(JOptionPane.
+				showInputDialog("Informe a quantidade de pessoas: "));
+		Pessoa[] pessoas = new Pessoa[qtdePessoas];
+		for (int i = 0; i < pessoas.length; i++) {
+			Pessoa p = new Pessoa();
+			p.nome = JOptionPane.showInputDialog("Nome: ");
+			p.idade = Integer.parseInt(JOptionPane.
+					showInputDialog("Idade: "));
+			pessoas[i] = p;
+		}
+		
+		/*String resultado = "";
+		for (int i = 0; i < pessoas.length; i++) {
+			String mensagemMaiorIdade = "";
+			if(pessoas[i].eMaiorDeIdade()) {
+				mensagemMaiorIdade = "Maior de Idade";
+			} else {
+				mensagemMaiorIdade = "Menor de Idade";
+			}
+			
+			resultado += pessoas[i].nome + " - " + mensagemMaiorIdade + "\n";
+		}
+		
+		JOptionPane.showMessageDialog(null, resultado);*/
+		
+		/*int[] vetorExemploForEach = {7,8,9,0,2,10};
+		for (int i : vetorExemploForEach) {
+			System.out.println(i);
+		}*/
+		String resultado = "";
+		for (Pessoa pessoa : pessoas) {
+			
+			String mensagemMaiorIdade = (pessoa.eMaiorDeIdade() ?
+					"Maior de Idade":"Menor de Idade");
+			
+			resultado += pessoa.nome + " - " + mensagemMaiorIdade + "\n";
+		}
+		JOptionPane.showMessageDialog(null, resultado);
 	
 	}
 
