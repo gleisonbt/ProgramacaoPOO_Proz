@@ -1,5 +1,9 @@
 package estruturaDeControle;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
 import javax.swing.JOptionPane;
 
 public class Main {
@@ -64,7 +68,7 @@ public class Main {
 		}
 		JOptionPane.showMessageDialog(null, listaNumeros);*/
 		
-		int qtdePessoas  = Integer.parseInt(JOptionPane.
+		/*int qtdePessoas  = Integer.parseInt(JOptionPane.
 				showInputDialog("Informe a quantidade de pessoas: "));
 		Pessoa[] pessoas = new Pessoa[qtdePessoas];
 		for (int i = 0; i < pessoas.length; i++) {
@@ -73,7 +77,7 @@ public class Main {
 			p.idade = Integer.parseInt(JOptionPane.
 					showInputDialog("Idade: "));
 			pessoas[i] = p;
-		}
+		}*/
 		
 		/*String resultado = "";
 		for (int i = 0; i < pessoas.length; i++) {
@@ -93,7 +97,7 @@ public class Main {
 		for (int i : vetorExemploForEach) {
 			System.out.println(i);
 		}*/
-		String resultado = "";
+		/*String resultado = "";
 		for (Pessoa pessoa : pessoas) {
 			
 			String mensagemMaiorIdade = (pessoa.eMaiorDeIdade() ?
@@ -101,6 +105,48 @@ public class Main {
 			
 			resultado += pessoa.nome + " - " + mensagemMaiorIdade + "\n";
 		}
+		JOptionPane.showMessageDialog(null, resultado);*/
+		/*
+		List<Integer> listaInteiros = new ArrayList<>();
+		listaInteiros.add(2);
+		listaInteiros.add(10);
+		for (Integer integer : listaInteiros) {
+			System.out.println(integer);
+		}*/
+
+		/*
+		List<String> listaNomes = new ArrayList<>();
+		String nome;
+		do {
+			nome = JOptionPane.showInputDialog("Nome: ");
+			listaNomes.add(nome);
+		} while (!nome.equals(""));*/
+		
+		
+		List<Pessoa> listaPessoas = new ArrayList<>();
+		String nomePessoa = JOptionPane.showInputDialog("Nome: ");
+		while (!nomePessoa.equals("")) {
+			Pessoa p = new Pessoa();
+			p.nome = nomePessoa;
+			p.idade  = Integer.parseInt(JOptionPane.
+					showInputDialog("Idade: "));
+			p.altura = Double.parseDouble(JOptionPane.showInputDialog("Altura: "));
+			p.peso = Double.parseDouble(JOptionPane.showInputDialog("Peso"));
+			
+			listaPessoas.add(p);
+			
+			nomePessoa = JOptionPane.showInputDialog("Nome: ");
+		}
+		
+		String resultado = "";
+		for (Pessoa pessoa : listaPessoas) {
+			String mensagemMaiorIdade = (pessoa.eMaiorDeIdade() ?
+					"Maior de Idade":"Menor de Idade");
+			
+			resultado += pessoa.nome + " - " + mensagemMaiorIdade + 
+					" " + String.format(Locale.US, "%.2f", pessoa.calculaIMC())  + "\n";
+		}
+		
 		JOptionPane.showMessageDialog(null, resultado);
 	
 	}

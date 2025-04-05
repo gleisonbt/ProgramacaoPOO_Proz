@@ -4,13 +4,14 @@ public class Pessoa {
 	String nome;
 	int idade;
 	double peso;
+	double altura;
 	
 	public boolean eMaiorDeIdade() {
-		if (idade > 17) {
-			return true;
-		} else {
-			return false;
-		}
+		return (idade > 18 ? true:false);
+	}
+	
+	public double calculaIMC() {
+		return peso/Math.pow(altura, 2);
 	}
 
 }
